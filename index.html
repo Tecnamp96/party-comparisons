@@ -44,8 +44,27 @@
     transition: width .1s linear;
   }
 
-  .wrap { max-width: 1500px; margin: 0 auto; padding: 64px 64px 72px; }
+  .wrap { max-width: 1500px; margin: 0 auto; padding: 64px 64px 72px; position: relative; z-index: 1; }
   @media (max-width: 900px) { .wrap { padding: 48px 24px 56px; } }
+
+  /* ---------- hero backdrop (Beehive / Parliament) ---------- */
+  .hero-bg {
+    position: absolute; top: 0; left: 0; right: 0; height: 640px;
+    z-index: 0; pointer-events: none; overflow: hidden;
+  }
+  .hero-bg::before {
+    content: ''; position: absolute; inset: 0;
+    background: url('parliament-grounds.jpg') center 28% / cover no-repeat;
+    opacity: .15;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,.85) 45%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,.85) 45%, rgba(0,0,0,0) 100%);
+  }
+  .hero-bg::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(32,32,28,.10), rgba(246,241,231,0) 70%);
+    mix-blend-mode: multiply;
+  }
+  @media (max-width: 640px) { .hero-bg { height: 520px; } }
 
   /* ---------- hero ---------- */
   .hero { text-align: center; margin-bottom: 40px; }
@@ -221,6 +240,8 @@
 
 <div id="progress"></div>
 
+<div class="hero-bg" aria-hidden="true"></div>
+
 <div class="wrap">
 
   <header class="hero">
@@ -245,7 +266,8 @@
   <main id="topics"></main>
 
   <footer class="foot">
-    Summarised from each party's official 2026 campaign policies and public statements, for a general audience — simplified and not exhaustive. Positions can change before election day (7 November 2026). For full detail, check each party's website or <a href="https://www.policy.nz" target="_blank" rel="noopener">policy.nz</a>. Parties shown are the six currently represented in Parliament, plus The Opportunities Party (TOP); other registered parties are also standing.
+    Summarised from each party's official 2026 campaign policies and public statements, for a general audience — simplified and not exhaustive. Positions can change before election day (7 November 2026). For full detail, check each party's website or <a href="https://www.policy.nz" target="_blank" rel="noopener">policy.nz</a>. Parties shown are the six currently represented in Parliament, plus The Opportunities Party (TOP).
+    <div style="margin-top:12px; font-weight:600; color:var(--ink-soft);">Other registered parties are also standing in 2026 — check <a href="https://www.policy.nz" target="_blank" rel="noopener">policy.nz</a> or their websites for the full field.</div>
     <div class="credit">Website by <a href="https://medzsite.netlify.app/" target="_blank" rel="noopener">Medz Web Services</a></div>
   </footer>
 
