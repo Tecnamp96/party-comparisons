@@ -226,7 +226,7 @@
   <header class="hero">
     <div class="hero-badge">2026 General Election · 7 November</div>
     <h1 id="headline">Where NZ's parties <span class="flag">stand</span></h1>
-    <p class="lede">A plain-language guide to what the six biggest parties say about the issues that shape daily life — straight from their own campaign platforms.</p>
+    <p class="lede">A plain-language guide to what seven of NZ's parties say about the issues that shape daily life — straight from their own campaign platforms.</p>
     <div class="countdown" id="countdown" aria-label="Countdown to election day">
       <div class="cd-cell"><b id="cd-d">–</b><span>days</span></div>
       <div class="cd-cell"><b id="cd-h">–</b><span>hours</span></div>
@@ -245,7 +245,7 @@
   <main id="topics"></main>
 
   <footer class="foot">
-    Summarised from each party's official 2026 campaign policies and public statements, for a general audience — simplified and not exhaustive. Positions can change before election day (7 November 2026). For full detail, check each party's website or <a href="https://www.policy.nz" target="_blank" rel="noopener">policy.nz</a>. Parties shown are those currently represented in Parliament that contested the 2023 election; other registered parties are also standing.
+    Summarised from each party's official 2026 campaign policies and public statements, for a general audience — simplified and not exhaustive. Positions can change before election day (7 November 2026). For full detail, check each party's website or <a href="https://www.policy.nz" target="_blank" rel="noopener">policy.nz</a>. Parties shown are the six currently represented in Parliament, plus The Opportunities Party (TOP); other registered parties are also standing.
     <div class="credit">Website by <a href="https://medzsite.netlify.app/" target="_blank" rel="noopener">Medz Web Services</a></div>
   </footer>
 
@@ -261,6 +261,7 @@ const parties = [
   { key: 'act',      name: 'ACT',      color: '#B8960C' },
   { key: 'nzfirst',  name: 'NZ First', color: '#111111' },
   { key: 'tpm',      name: 'Te Pāti Māori', color: '#B7132F' },
+  { key: 'top',      name: 'TOP', color: '#0B877D' },
 ];
 
 const topics = [
@@ -271,6 +272,7 @@ const topics = [
     act: "Backs school choice and cutting the cost of school uniforms.",
     nzfirst: "Backs the coalition's back-to-basics literacy and numeracy push.",
     tpm: "Focused on removing systemic racism from the education system for Māori students.",
+    top: "Pay parity for ECE teachers, civics from Year 6, less classroom screen time, and funded community night schools.",
   }},
   { label: 'Healthcare', stances: {
     national: "Record health funding: more surgeries, new medicines, 24/7 online GP care, and after-hours clinics.",
@@ -279,6 +281,7 @@ const topics = [
     act: "Let pharmacists treat more conditions directly, easing pressure on GPs.",
     nzfirst: "Fast-track overseas doctors into GP roles and expand digital health clinics in rural areas.",
     tpm: "Wants Māori-led health services restored and equitable access for whānau.",
+    top: "Properly fund core services — GPs, ambulances, health infrastructure — with a cross-party 10-year health plan.",
   }},
   { label: 'Retirement age', stances: {
     national: "Keeps NZ Super at 65 until 2044, then a gradual rise to 67 — no change for anyone born before 1979.",
@@ -287,6 +290,7 @@ const topics = [
     act: "Long-standing support for gradually raising the pension age and boosting private saving via KiwiSaver.",
     nzfirst: "Keep the pension age at 65 — “no ifs, buts, or maybes.”",
     tpm: "No signalled support for raising the age; wants retirement support that reflects Māori life-expectancy gaps.",
+    top: "Would replace NZ Super with a universal $370/week Citizen's Income, backed by a compulsory 'KiwiSaver 2.0'.",
   }},
   { label: 'Tax', stances: {
     national: "Cut income tax, opposes any capital gains or wealth tax, wants smaller government spending.",
@@ -295,6 +299,7 @@ const topics = [
     act: "Wants one flat income tax rate and no tax on capital; opposes wealth and capital gains taxes.",
     nzfirst: "Reviewing how inflation affects tax paid, with more IRD audits to catch avoidance.",
     tpm: "Zero income tax up to $30,000, funded by taxing wealth and high incomes.",
+    top: "A 'Tax Reset': 1.75% annual land value tax funding a $370/week Citizen's Income, with three income tax rates.",
   }},
   { label: 'Housing', stances: {
     national: "Faster home-building via planning reform; opposes new property taxes.",
@@ -303,6 +308,7 @@ const topics = [
     act: "Cut planning red tape (RMA reform) to let the private sector build faster.",
     nzfirst: "Easier consent rules for building granny flats and other small structures.",
     tpm: "A right to a warm, safe home for every whānau, with Māori-led housing solutions.",
+    top: "A land value tax to end land banking, plus a building boom: simplified zoning, tiny homes, underwritten affordable builds.",
   }},
   { label: 'Cost of living', stances: {
     national: "Points to falling inflation and tax relief as the fix, plus targeted support during price spikes.",
@@ -311,6 +317,7 @@ const topics = [
     act: "Cutting government waste and “red tape” costs it says get passed on to households.",
     nzfirst: "A 50% rates rebate for SuperGold cardholders; balancing the budget to ease interest rates.",
     tpm: "Wants fuel excise tax removed to immediately ease household costs.",
+    top: "Says its Citizen's Income plus cheaper renewable power (est. $500–$2,700/yr per household) beats piecemeal relief.",
   }},
   { label: 'Crime & justice', stances: {
     national: "Tougher sentencing and more police, crediting its approach for an 85% drop in ram raids.",
@@ -319,6 +326,7 @@ const topics = [
     act: "Wants to add burglary to the three-strikes sentencing law.",
     nzfirst: "New youth crime measures and more community, Māori and Pasifika wardens.",
     tpm: "Prioritises tackling poverty and inequity over increased policing and sentencing.",
+    top: "'Smart on crime': rehabilitation over prison, decriminalise drug possession, expand drug and mental-health courts.",
   }},
   { label: 'Immigration', stances: {
     national: "‘Quality over quantity’ — streamlined visas to fill genuine shortages like doctors and tech workers.",
@@ -327,6 +335,7 @@ const topics = [
     act: "Proposes a rural workforce visa for farm labour shortages; favours targeted skilled migration.",
     nzfirst: "Wants tighter settings, with visas focused on genuine, verified skill shortages.",
     tpm: "Focus on equitable settlement outcomes rather than headline visa numbers.",
+    top: "No standalone immigration policy published for 2026 — its platform centres on tax, energy and economic reform.",
   }},
   { label: 'Mining', stances: {
     national: "Backs fast-tracked approval of new mines and resource projects to grow the economy.",
@@ -335,6 +344,7 @@ const topics = [
     act: "Strongly pro-development — wants fewer regulatory barriers to mining projects.",
     nzfirst: "Actively promotes new minerals exploration and resource development, including critical minerals.",
     tpm: "Calls for a nationwide ban on seabed mining permits and withdrawal of existing ones.",
+    top: "Opposes all seabed mining; wants 30% of NZ's ocean territory protected as marine reserves by 2035.",
   }},
   { label: 'Oil & gas drilling', stances: {
     national: "Reversed the 2018 offshore exploration ban to encourage new gas development.",
@@ -343,6 +353,7 @@ const topics = [
     act: "A strong supporter of reopening offshore exploration and drilling.",
     nzfirst: "Pushing to reinstate fast-track ministerial approval powers for new energy and resource projects.",
     tpm: "Opposes new oil and gas plans, calling them designed to benefit oil companies, not communities.",
+    top: "Opposes locking in fossil fuels (including LNG imports); wants triple the renewable generation by 2050.",
   }},
 ];
 
